@@ -1,13 +1,14 @@
 import mysql.connector as mysql
 import sys
 from fuzzywuzzy import fuzz 
-from fuzzywuzzy import process 
+from fuzzywuzzy import process
+import os
 
 db = mysql.connect(
-    host = "127.0.0.1",
-    user = "healthcare",
-    passwd = "healthcare",
-    database = "healthcare"
+    host = os.environ['HOST'],
+    user = os.environ['USER'],
+    passwd = os.environ['PASS'],
+    database = os.environ['DB_SCHEMA']
 )
 
 def search_coincidences(ratio_tolerance):
